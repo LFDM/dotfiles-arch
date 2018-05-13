@@ -14,7 +14,7 @@ export EDITOR="vim"
 
 export TERM=xterm-256color
 
-plugins=(git colorize)
+plugins=(gitfast colorize)
 
 source $ZSH/oh-my-zsh.sh
 

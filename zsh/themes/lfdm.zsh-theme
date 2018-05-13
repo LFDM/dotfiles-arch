@@ -28,24 +28,16 @@ ins_mode=""
 ins_delim="⇒"
 cmd_delim="%B%F{226}C%b%f"
 
-# autoload -U add-zsh-hook
-# add-zsh-hook precmd
+autoload -U add-zsh-hook
+add-zsh-hook precmd git_prompt_info
 
-function git_left_prompt() {
-  [[ $ZSH_THEME_GIT_PROMPT_COMPLETE[branch] == '' ]] && return
-  printf '%s%s%s%s'\
-    $ZSH_THEME_GIT_PROMPT_PREFIX \
-    $ZSH_THEME_GIT_PROMPT_COMPLETE[branch] \
-    $ZSH_THEME_GIT_PROMPT_COMPLETE[dirty] \
-    $ZSH_THEME_GIT_PROMPT_SUFFIX
-}
+# function git_right_prompt {
+#   printf '%s%s%s' \
+#     $ZSH_THEME_GIT_PROMPT_CHANGED \
+#     $ZSH_THEME_GIT_PROMPT_UNTRACKED \
+#     $ZSH_THEME_GIT_PROMPT_CONFLICTS
+# }
 
-function git_right_prompt {
-  printf '%s%s%s' \
-    $ZSH_THEME_GIT_PROMPT_COMPLETE[change] \
-    $ZSH_THEME_GIT_PROMPT_COMPLETE[stash] \
-    $ZSH_THEME_GIT_PROMPT_COMPLETE[remote]
-}
 
 function mode_switch {
   echo "${${KEYMAP/vicmd/$1}/(main|viins)/$2}"
@@ -71,5 +63,5 @@ zle -N zle-line-finish
 
 # Beware, single-quotes are imperative here (resolution of variable at a
 # different time!) As vi_mode is dynamic it cannot be inside of double-quotes.
-PROMPT='${username} ${short_path} $(git_left_prompt) ${delimiter} '
-RPROMPT='${vi_mode} $(git_right_prompt) $(nvm_prompt_info) %T'
+PROMPT='${username} ${short_path} $(git_prompt_info) ${delimiter} '
+RPROMPT='${vi_mode} $(nvm_prompt_info) %T'
