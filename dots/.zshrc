@@ -20,3 +20,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Add custom script folder to PATH
 export PATH=$PATH:$ZSH_CUSTOM/scripts
+
+# asdf programming language version manager
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
