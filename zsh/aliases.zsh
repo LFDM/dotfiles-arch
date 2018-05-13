@@ -79,10 +79,9 @@ alias v='vim'
 alias minvim= 'MINVIM=1 vim'
 
 # Config files
-alias vimrc="vim $DOTFILES/vimrc.after"
-alias zshrc="vim $DOTFILES/zshrc"
-alias pryrc="vim $DOTFILES/pryrc"
-alias tmuxc="vim $DOTFILES/tmux.conf"
+alias vimrc="vim $DOTFILES/dots/.vimrc"
+alias zshrc="vim $DOTFILES/dots/.zshrc"
+alias tmuxc="vim $DOTFILES/dots/.tmux.conf"
 alias aliases="vim $DOTFILES/zsh/aliases.zsh"
 alias zsh_func="vim $DOTFILES/zsh/functions.zsh"
 alias funcs='zsh_func'
