@@ -1,0 +1,4 @@
+#!/bin/zsh -e
+
+rebind-shifts-and-alt-r
+rebind-caps-lock

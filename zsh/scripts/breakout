@@ -1,0 +1,67 @@
+#!/bin/zsh
+# Breaks out a new terminal window of a running tmux session,
+# if possible on a secondary monitor.
+#
+# A new tmux subsession is created, independent from the calling
+# session but mirroring it.
+# Detaching from this new session will immediately kill it to avoid
+# abandoned sessions staying alive forever.
+# Also launches a new window called breakout to which the new session
+# will attach.
+#
+# This window will also be used run all commands you pass:
+#   breakout rake do_something
+# will run the do_something rake task.
+#
+# Breakout can read from pipes:
+#   echo ls | breakout
+# will execute ls in the new window.
+#
+# Pipes and commands can be combined
+#   echo ls | breakout ls -l
+# will executes ls -l in the new window.
+#
+# All special characters that should be sent to the new window need to
+# be escaped, or the whole expression put into quotes
+#   echo ls | breakout -l \| grep txt
+#   echo ls | breakout -l '| grep txt'
+# Take this with a grain of salt, errors might occur.
+
+session=$(tmux display -p '#S')
+if [[ $session == '' ]]; then
+  echo 'Error: cannot find a tmux session.'
+  return 1
+fi
+
+if ! test -t 0; then
+  pipe="$(cat) "
+fi
+
+args=$pipe$@
+term=$COLORTERM
+subsession="breakout-$session-$(date +%s)"
+tmux_create="tmux new -d -s $subsession -t $session;"
+tmux_new_win="tmux new-window -t $subsession -n breakout;"
+
+if [[ $args == '' ]]; then
+  tmux_exec=''
+else
+  # it's absolutely imperative to use escaped double quotes, otherwise
+  # send-keys breaks!
+  tmux_exec="tmux send-keys -t $subsession \"$args\" C-m;"
+fi
+
+full_screen_opt() {
+  if [[ $1 == 'xfce4-terminal' ]]; then
+    echo --fullscreen
+  else
+    echo --full-screen
+  fi
+}
+
+tmux_attach="tmux a -t $subsession;"
+tmux_kill="tmux kill-session -t $subsession"
+cmd="zsh -ilc '$tmux_create $tmux_new_win $tmux_exec $tmux_attach $tmux_kill'"
+
+# don't take TMUX variable with you, it will create a nesting error
+TMUX='' $term $(full_screen_opt $term) --geometry=+1921 -e $cmd
