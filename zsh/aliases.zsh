@@ -78,6 +78,9 @@ alias grH="git-reset-head-hard"
 alias v='vim'
 alias minvim= 'MINVIM=1 vim'
 
+# VS Code
+alias vsc=code-oss
+
 # Config files
 alias vimrc="vim $DOTFILES/dots/.vimrc"
 alias zshrc="vim $DOTFILES/dots/.zshrc"
@@ -232,3 +235,9 @@ alias siaer="./gradlew appengineStop -Pforeground && ./gradlew appengineRun -Pfo
 
 # Invoke SI ftemp
 alias sigen="FTEMP_CWD=$PWD npm run -s generate --"
+
+alias toTs="rename 's/\.js$\.ts/' **/*.js"
+alias toTsx="rename 's/\.js$\.tsx/' **/*.js"
+
+alias am="node $HOME/code/affilimate/cli/dist/index.js"
+
