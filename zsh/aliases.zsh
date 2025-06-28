@@ -248,5 +248,5 @@ alias am="node $HOME/code/affilimate/affilimate/cli/dist/index.js"
 alias dado="node $HOME/code/dado/main/pkgs/cli/dist/index.js"
 alias gsv="$HOME/code/affilimate/affilimate/scripts/gs-view"
 alias gsc="gcloud storage cp"
-alias gcfdel="gcloud-functions-delete"
+alias gcfd="gcloud-functions-delete"
 
