@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+current_dir=$(pwd)
+echo "Moving to Music directory"
+cd ~/Music
+
+echo "Downloading $1"
+yt-dlp -x "$1"
+
+echo "Moving back to $current_dir"
+cd "$current_dir"
