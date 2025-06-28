@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+# Helper function to make text bold
+bold() {
+    echo -n "\033[1m$1\033[0m"
+}
+
 # Check if at least 2 arguments are provided (project + at least one function)
 if [ $# -lt 2 ]; then
     echo "Usage: $(basename $0) <project> <function1> [function2] [function3] ..."
@@ -13,8 +18,8 @@ shift  # Remove the first argument, leaving only function names
 
 # Iterate over all remaining arguments (function names)
 for fn in "$@"; do
-    echo "Deleting function: $fn"
+    echo "Deleting function $(bold "$fn") in project $(bold "$project")"
     gcloud functions delete "$fn" --project "$project" --quiet
 done
 
-echo "All functions deleted successfully!"
+echo "All commands run!"
