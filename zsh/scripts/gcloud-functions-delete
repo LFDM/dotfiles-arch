@@ -2,8 +2,8 @@
 
 # Check if at least 2 arguments are provided (project + at least one function)
 if [ $# -lt 2 ]; then
-    echo "Usage: gcloud-functions-delete <project> <function1> [function2] [function3] ..."
-    echo "Example: gcloud-functions-delete my-project function1 function2 function3"
+    echo "Usage: $(basename $0) <project> <function1> [function2] [function3] ..."
+    echo "Example: $(basename $0) my-project function1 function2 function3"
     exit 1
 fi
 
