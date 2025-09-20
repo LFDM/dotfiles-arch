@@ -1,1 +1,14 @@
+#!/bin/zsh
+
+# Git fetch single branch script
 git fetch origin $1:$1
+
+# # Completion function for branch names
+# _git_fetch_single_branch() {
+#     local -a branches
+#     branches=($(git branch -r --format='%(refname:short)' | sed 's/origin\///' | grep -v 'HEAD'))
+#     _describe 'branches' branches
+# }
+
+# # Register the completion
+# compdef _git_fetch_single_branch git-fetch-single-branch
