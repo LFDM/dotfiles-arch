@@ -82,6 +82,8 @@ alias gcnf="git commit --no-verify"
 alias grH="git-reset-head-hard"
 # Git Fetch Branch
 alias gfb="git-fetch-single-branch"
+# Git Copy Current Branch (to clipboard)
+alias gccb="git branch --show-current | tr -d '\n' | xclip -selection clipboard"
 
 # Fast vim
 # alias v='vim'
