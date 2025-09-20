@@ -78,6 +78,7 @@ alias ggpurs="ggpur && ggpush"
 alias gpF="git-push-with-force"
 alias gcnf="git commit --no-verify"
 alias grH="git-reset-head-hard"
+alias gfb="git-fetch-single-branch"
 
 # Fast vim
 # alias v='vim'
@@ -244,9 +245,10 @@ alias tb="tig blame"
 # alias toTs="rename 's/\.js$\.ts/' **/*.js"
 # alias toTsx="rename 's/\.js$\.tsx/' **/*.js"
 
-AFFILIMATE_DIR="$HOME/code/affilimate/affilimate"
-AFFILIMATE_SCRIPTS_DIR="$AFFILIMATE_DIR/scripts"
-alias am="node $AFFILIMATE_DIR/cli/dist/index.js"
+AFFILIMATE_DIR="$HOME/code/affilimate"
+AFFILIMATE_SCRIPTS_DIR="$AFFILIMATE_DIR/affilimate/scripts"
+alias am="$AFFILIMATE_DIR//affilimate/affilimate"
+alias am2="$AFFILIMATE_DIR/affilimate-02/affilimate"
 alias dado="node $HOME/code/dado/main/pkgs/cli/dist/index.js"
 alias eup="$AFFILIMATE_SCRIPTS_DIR/extract-url-param"
 alias gsv="$AFFILIMATE_SCRIPTS_DIR/gs-view"
