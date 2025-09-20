@@ -66,6 +66,7 @@ alias gcof='git checkout --'
 alias gcor='git-checkout-remote-branch'
 alias gcob='git checkout -b'
 alias gcobt='git-new-tracked-branch'
+# Git On Master
 alias gom='git-on-master'
 alias gdw='git diff --word-diff'
 alias gst='git-pretty-status-wrapper'
@@ -75,9 +76,11 @@ alias gbrr="git branch -v --sort=-committerdate"
 alias ggpushs="ggpush && sigh"
 alias grbm="git rebase master"
 alias ggpurs="ggpur && ggpush"
+# Git Push Force
 alias gpF="git-push-with-force"
 alias gcnf="git commit --no-verify"
 alias grH="git-reset-head-hard"
+# Git Fetch Branch
 alias gfb="git-fetch-single-branch"
 
 # Fast vim
