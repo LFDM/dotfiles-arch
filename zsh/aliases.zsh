@@ -73,6 +73,7 @@ alias gst='git-pretty-status-wrapper'
 alias gprum='git pull --rebase upstream master'
 alias gpm='git-post-merge-cleanup'
 alias gbrr="git branch -v --sort=-committerdate"
+alias gbrs="git-branch-selector"
 alias ggpushs="ggpush && sigh"
 alias grbm="git rebase master"
 alias ggpurs="ggpur && ggpush"
