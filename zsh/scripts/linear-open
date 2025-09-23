@@ -28,9 +28,9 @@ if [[ $BRANCH =~ ^([a-zA-Z0-9]+-[0-9]+)(/.*)?$ ]]; then
     echo "Opening Linear issue: $URL"
     # Use 'open' on macOS if available; fallback to 'xdg-open' on Linux
     if command -v open >/dev/null 2>&1; then
-        open "$URL"
+        open "$URL" >/dev/null 2>&1
     elif command -v xdg-open >/dev/null 2>&1; then
-        xdg-open "$URL"
+        xdg-open "$URL" >/dev/null 2>&1
     else
         echo "Error: Could not find 'open' or 'xdg-open' to open the URL"
         exit 1
