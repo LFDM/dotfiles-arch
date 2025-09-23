@@ -1,0 +1,35 @@
+#!/bin/zsh
+
+# linear-open - Open Linear issue from current git branch
+# Usage: linear-open <org>
+# Example: linear-open affilimate
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <org>"
+    echo "Example: $0 affilimate"
+    exit 1
+fi
+
+ORG="$1"
+
+# Get current git branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+if [ $? -ne 0 ]; then
+    echo "Error: Not in a git repository"
+    exit 1
+fi
+
+# Parse branch name for pattern \w+-\d+ followed by / or end of string
+if [[ $BRANCH =~ ^([a-zA-Z0-9]+-[0-9]+)(/.*)?$ ]]; then
+    IDENTIFIER="${match[1]}"
+    URL="https://linear.app/$ORG/issue/$IDENTIFIER"
+
+    echo "Opening Linear issue: $URL"
+    open "$URL"
+else
+    echo "Error: Current branch '$BRANCH' doesn't match expected pattern (word-number)"
+    echo "Expected format: word-number or word-number/anything"
+    echo "Example: ABC-123 or ABC-123/feature"
+    exit 1
+fi
