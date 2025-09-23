@@ -260,4 +260,5 @@ alias eup="$AFFILIMATE_SCRIPTS_DIR/extract-url-param"
 alias gsv="$AFFILIMATE_SCRIPTS_DIR/gs-view"
 alias gsc="gcloud storage cp"
 alias gcfd="gcloud-functions-delete"
+alias lo="linear-open affilimate"
 
