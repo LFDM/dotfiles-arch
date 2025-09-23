@@ -26,7 +26,15 @@ if [[ $BRANCH =~ ^([a-zA-Z0-9]+-[0-9]+)(/.*)?$ ]]; then
     URL="https://linear.app/$ORG/issue/$IDENTIFIER"
 
     echo "Opening Linear issue: $URL"
-    open "$URL"
+    # Use 'open' on macOS if available; fallback to 'xdg-open' on Linux
+    if command -v open >/dev/null 2>&1; then
+        open "$URL"
+    elif command -v xdg-open >/dev/null 2>&1; then
+        xdg-open "$URL"
+    else
+        echo "Error: Could not find 'open' or 'xdg-open' to open the URL"
+        exit 1
+    fi
 else
     echo "Error: Current branch '$BRANCH' doesn't match expected pattern (word-number)"
     echo "Expected format: word-number or word-number/anything"
