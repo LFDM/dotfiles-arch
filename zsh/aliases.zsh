@@ -57,6 +57,9 @@ alias dots="cd $DOTFILES"
 # alias r!='noglob rake'
 # alias rake!='noglob rake'
 
+# Github CLI - resolving conflict with my own git hist alias, which is more important to me
+alias GH='/usr/bin/gh'
+
 # Additional Git
 alias gh='git hist'
 alias gcom='gcmsg'
@@ -73,7 +76,9 @@ alias gst='git-pretty-status-wrapper'
 alias gprum='git pull --rebase upstream master'
 alias gpm='git-post-merge-cleanup'
 alias gbrr="git branch -v --sort=-committerdate"
-alias gbrs="git-branch-selector"
+alias gbrs="git-branch-selector checkout"
+alias gbrsr="git-branch-selector rebase"
+alias gbrss="git-branch-selector"
 alias ggpushs="ggpush && sigh"
 alias grbm="git rebase master"
 alias ggpurs="ggpur && ggpush"
@@ -85,6 +90,7 @@ alias grH="git-reset-head-hard"
 alias gfb="git-fetch-single-branch"
 # Git Copy Current Branch (to clipboard)
 alias gccb="git branch --show-current | tr -d '\n' | xclip -selection clipboard"
+alias gg="lazygit"
 
 # Fast vim
 # alias v='vim'
@@ -262,3 +268,8 @@ alias gsc="gcloud storage cp"
 alias gcfd="gcloud-functions-delete"
 alias lo="linear-open affilimate"
 
+alias amsd="AM_ENV=$AFFILIMATE_DIR/affilimate-secrets/cf.dev.env am r sp"
+alias amsp="AM_ENV=$AFFILIMATE_DIR/affilimate-secrets/cf.prod.env am r sp"
+
+alias am2sd="AM_ENV=$AFFILIMATE_DIR/affilimate-secrets/cf.dev.env am2 r sp"
+alias am2sp="AM_ENV=$AFFILIMATE_DIR/affilimate-secrets/cf.prod.env am2 r sp"
