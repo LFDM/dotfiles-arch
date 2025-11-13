@@ -1,0 +1,9 @@
+os:
+  open: cursor {{filename}} >/dev/null
+gui:
+  shortTimeFormat: 15:04
+  showNumstatInFilesView: true
+  skipNoStagedFilesWarning: true
+  theme:
+    selectedLineBgColor:
+      - "#2b323e"
