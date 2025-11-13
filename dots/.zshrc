@@ -1,26 +1,41 @@
+# Use powerline
+USE_POWERLINE="true"
+# Has weird character width
+# Example:
+#    is not a diamond
+HAS_WIDECHARS="false"
+# Source manjaro-zsh-configuration
+if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+  source /usr/share/zsh/manjaro-zsh-config
+fi
+# Use manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+  source /usr/share/zsh/manjaro-zsh-prompt
+fi
+
 # Path to dotfiles folder
 export DOTFILES=$HOME/dotfiles
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
 # Path to custom files
 ZSH_CUSTOM=$DOTFILES/zsh
 
-ZSH_THEME='lfdm'
-
 ENABLE_CORRECTION=true
 
-export EDITOR="vim"
-
-export TERM=xterm-256color
-
-plugins=(gitfast colorize)
-
-source $ZSH/oh-my-zsh.sh
+# export EDITOR="vim"
 
 # Add custom script folder to PATH
 export PATH=$PATH:$ZSH_CUSTOM/scripts
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+. $ZSH_CUSTOM/aliases.zsh
+. $ZSH_CUSTOM/functions.zsh
+. $ZSH_CUSTOM/plugins/git.zsh
+
+. $DOTFILES/config/env.zsh
+. $DOTFILES/config/p10k.zsh
 
 # asdf programming language version manager
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# . $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.bash
+
+# Manjaro defaults
