@@ -1,4 +1,8 @@
 [general]
 import = [
-    "~/code/alacritty-theme/themes/gruber-darker.toml"
+    "~/code/alacritty-theme/themes/gruber_darker.toml"
 ]
+
+[font.normal]
+family = "Source Code Pro"
+style = "Regular"
