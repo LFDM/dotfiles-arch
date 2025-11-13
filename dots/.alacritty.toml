@@ -1,0 +1,4 @@
+[general]
+import = [
+    "~/code/alacritty-theme/themes/gruber-darker.toml"
+]
