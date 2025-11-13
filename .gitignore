@@ -1,4 +1,4 @@
 dots/.gitconfig.user
 .specstory
 
-config/vars.env
+config/env.zsh
