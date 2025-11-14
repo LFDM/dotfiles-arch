@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/code/alacritty-theme/themes/gruber_darker.toml"
+    "~/code/alacritty-theme/themes/alacritty_0_12.toml"
 ]
 
 [font.normal]
