@@ -24,8 +24,10 @@ ENABLE_CORRECTION=true
 # export EDITOR="vim"
 
 # Add custom script folder to PATH
-export PATH=$PATH:$ZSH_CUSTOM/scripts
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH=$PATH:/opt/asdf-vm/bin
+
+export PATH=$PATH:$ZSH_CUSTOM/scripts
 
 . $ZSH_CUSTOM/aliases.zsh
 . $ZSH_CUSTOM/functions.zsh
